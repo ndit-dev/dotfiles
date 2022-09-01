@@ -74,6 +74,9 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
+sudo
+last-working-dir
+colored-man-pages
 zsh-autosuggestions
 zsh-syntax-highlighting)
 
@@ -104,3 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# set https://starship.rs/ as default prompt
+eval "$(starship init zsh)"
+

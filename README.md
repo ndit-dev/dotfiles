@@ -3,7 +3,7 @@
 ```
 cd ~
 sudo apt update && sudo apt -y upgrade
-sudo apt -y install zsh wget curl tree git
+sudo apt -y install zsh wget curl tree git unzip net-tools
 export PATH=$HOME/bin:$PATH
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

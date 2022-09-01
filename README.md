@@ -1,4 +1,5 @@
-# set up new system 
+# ndit-dev dotfiles
+## new systems
 ```
 cd ~
 sudo apt update && sudo apt -y upgrade
@@ -14,7 +15,8 @@ source ~/.zshrc
 sudo do-release-upgrade
 sudo reboot
 ```
-# setup new user with existing system installation
+
+## new user with existing system installation
 ```
 cd ~
 export PATH=$HOME/bin:$PATH

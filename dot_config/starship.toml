@@ -73,7 +73,7 @@ $shell\
 # Configure if and how the time is shown
 [time]
 disabled = false
-time_format = "%T"
+time_format = "%R"
 format = "🕙[$time ](bold blue)"
 
 [sudo]
@@ -88,3 +88,27 @@ style = "bg:blue"
 symbol = "🔴"
 map_symbol = true
 format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+
+[shell]
+
+fish_indicator = "🐟"
+bash_indicator = "🐧"
+zsh_indicator = "🐧"
+powershell_indicator = ""
+unknown_indicator = "mystery shell"
+format = "[$indicator ](bold cyan) "
+disabled = false
+
+[custom.files]
+description = "Show files count for current directory"
+command = "find ./ -maxdepth 1 -type f | wc -l"
+format = "📝[$output]($style) "
+style = "white"
+when = "true"
+
+[custom.directories]
+description = "Show directory count count for current directory"
+command = "find ./ -maxdepth 1 -type d | tail -n +2 | wc -l"
+format = "📁[$output]($style) "
+style = "blue"
+when = "true"

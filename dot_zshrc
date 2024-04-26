@@ -76,7 +76,6 @@ export PATH=$HOME/bin:$PATH
 plugins=(git
 sudo
 docker
-auto-color-ls
 last-working-dir
 colored-man-pages
 zsh-autosuggestions
@@ -110,7 +109,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ll='colorls -ahl'
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+alias cat='batcat'
+alias bat='batcat'
 
 # set https://starship.rs/ as default prompt
 eval "$(starship init zsh)"

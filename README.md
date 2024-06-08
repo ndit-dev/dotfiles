@@ -14,8 +14,6 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/
 curl -sS https://starship.rs/install.sh | sudo sh
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply ndit-dev
 source ~/.zshrc
-sudo do-release-upgrade
-sudo reboot
 ```
 
 ### OS X

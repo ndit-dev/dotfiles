@@ -109,6 +109,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# OneDrive path
+if grep -q microsoft /proc/version; then
+    # Windows WSL
+    export OneDriveDir=$(wslpath "$(cd /mnt/c/Windows/System32 && cmd.exe /C echo %OneDrive% | tr -d '\r')")
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS
+    export OneDriveDir=$(osascript -e 'tell application "System Events" to get POSIX path of (path to home folder) & "OneDrive"')
+fi
+
+# Fallback om ingen av ovanstående fungerar
+if [ -z "$OneDriveDir" ]; then
+    echo "OneDrive path could not be determined."
+else
+    echo "OneDrive path is set to '$OneDriveDir'"
+fi
+
+# andra bra-att-ha alias
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
@@ -118,6 +135,16 @@ alias lt='ls --tree'
 alias cat='batcat'
 alias bat='batcat'
 
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias p='pbpaste'
+
+# fabric specifika alias
+## min egna förbättrade hjälp för att lista alla patterns och visa dess innehåll
+alias patterns='(cd ~/.config/fabric/patterns; find -name system.md | sort | fzf --preview "batcat --style=numbers --color=always {}" --preview-window=right:60%:wrap)'
+## script för att förenkla körandet av mina parafeedback för mitt noteringsystem.
+alias para_feedback='"$OneDriveDir/Dokument/03 Resurser/fabric/baron_para_feedback.sh" | fabric -sp baron_para_feedback'
+
+
 # set https://starship.rs/ as default prompt
 eval "$(starship init zsh)"
-

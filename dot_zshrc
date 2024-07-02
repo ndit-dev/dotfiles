@@ -143,7 +143,7 @@ alias p='pbpaste'
 ## min egna förbättrade hjälp för att lista alla patterns och visa dess innehåll
 alias patterns='(cd ~/.config/fabric/patterns; find -name system.md | sort | fzf --preview "batcat --style=numbers --color=always {}" --preview-window=right:60%:wrap)'
 ## script för att förenkla körandet av mina parafeedback för mitt noteringsystem.
-alias para_feedback='"$OneDriveDir/Dokument/03 Resurser/fabric/baron_para_feedback.sh" | fabric -sp baron_para_feedback'
+alias para_feedback='"$OneDriveDir/Dokument/02 Områden/AI/Fabric/p_para_feedback.sh" | fabric -sp p_para_feedback'
 
 
 # set https://starship.rs/ as default prompt

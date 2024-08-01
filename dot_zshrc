@@ -115,7 +115,7 @@ if grep -q microsoft /proc/version; then
     export OneDriveDir=$(wslpath "$(cd /mnt/c/Windows/System32 && cmd.exe /C echo %OneDrive% | tr -d '\r')")
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS
-    export OneDriveDir=$(osascript -e 'tell application "System Events" to get POSIX path of (path to home folder) & "OneDrive"')
+    export OneDriveDir=$(find "$HOME" -maxdepth 1 -name "OneDrive*" | head -n 1)
 fi
 
 # Fallback om ingen av ovanstående fungerar

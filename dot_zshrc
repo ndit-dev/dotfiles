@@ -145,6 +145,8 @@ alias patterns='(cd ~/.config/fabric/patterns; find -name system.md | sort | fzf
 ## script för att förenkla körandet av mina parafeedback för mitt noteringsystem.
 alias para_feedback='"$OneDriveDir/Dokument/02 Områden/AI/Fabric/p_para_feedback.sh" | fabric -sp p_para_feedback'
 
+# visa ej varningar från starship
+export STARSHIP_LOG=error
 
 # set https://starship.rs/ as default prompt
 eval "$(starship init zsh)"

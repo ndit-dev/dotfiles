@@ -121,6 +121,8 @@ fi
 # Fallback om ingen av ovanstående fungerar
 if [ -z "$OneDriveDir" ]; then
     echo "OneDrive path could not be determined."
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
 else
     echo "OneDrive path is set to '$OneDriveDir'"
 fi
@@ -135,8 +137,6 @@ alias lt='ls --tree'
 alias cat='batcat'
 alias bat='batcat'
 
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 alias p='pbpaste'
 
 # fabric specifika alias

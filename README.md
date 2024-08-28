@@ -45,6 +45,9 @@ winget install BurntSushi.ripgrep.MSVC
 winget install fzf
 # Cheznoi
 winget install twpayne.chezmoi
+chezmoi init --apply ndit-dev --apply
+# starship
+winget install --id Starship.Starship
 
 ```
 

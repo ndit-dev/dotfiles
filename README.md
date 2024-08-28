@@ -34,7 +34,7 @@ source ~/.zshrc
 
 ### Windows
 does not really use dot chezmoi, but have a setup script here anyway
-1. Install Gintronic font patched with Nerd Fonts (not on github for copy right reasons)
+1. Install PragmataPro (not on github for copyright reasons)
 2. install the following after setting up the profile
 ```
 # bat

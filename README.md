@@ -43,6 +43,9 @@ winget install sharkdp.bat
 winget install BurntSushi.ripgrep.MSVC
 # fuzzy finder
 winget install fzf
+# Cheznoi
+winget install twpayne.chezmoi
+
 ```
 
 ## new user with existing system installation

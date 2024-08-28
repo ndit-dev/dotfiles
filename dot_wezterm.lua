@@ -14,7 +14,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     local major, minor, build, rev = stdout:match("Version ([0-9]+)%.([0-9]+)%.([0-9]+)%.([0-9]+)")
     local is_windows_11 = tonumber(build) >= 22000
 
-    --- Set Pwsh as the default on Windows
+    --- Set wsl as the default on Windows
     config.default_prog = { "wsl.exe" }
     table.insert(launch_menu, {
         label = "WSL",
@@ -99,7 +99,7 @@ config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
 config.adjust_window_size_when_changing_font_size = false
 config.window_decorations = "RESIZE"
-config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
 config.tab_bar_at_bottom = false
 config.mouse_bindings = mouse_bindings
 config.warn_about_missing_glyphs = false

@@ -1,17 +1,12 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+# OH-MY-ZSH PATH
 export ZSH="$HOME/.oh-my-zsh"
 
-# export PATH
-export PATH=$HOME/bin:$PATH
+# PATH
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# OH-MY-ZSH PLUGINS
 plugins=(git
 sudo
 docker
@@ -20,11 +15,7 @@ colored-man-pages
 zsh-autosuggestions
 zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# OneDrive path
+# ONEDRIVE DIR
 if grep -q microsoft /proc/version; then
     # Windows WSL
     export OneDriveDir=$(wslpath "$(cd /mnt/c/Windows/System32 && cmd.exe /C echo %OneDrive% | tr -d '\r')")
@@ -35,26 +26,30 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     export OneDriveDir=$(find "$HOME" -maxdepth 1 -name "OneDrive*" | head -n 1)
 fi
 
-# Fallback om ingen av ovanstående fungerar
 if [ -z "$OneDriveDir" ]; then
     echo "OneDrive path could not be determined."
 else
-    echo "OneDrive path is set to '$OneDriveDir'"
+    echo "OneDrive: '$OneDriveDir'"
 fi
 
-# andra bra-att-ha alias
+# ALIASES
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
+alias digs='dig +short'
 
 alias cat='batcat'
 alias bat='batcat'
 
 alias p='pbpaste'
+alias fp='fabricp'
 
-# fabric specifika alias
+alias vaxla='$OneDriveDir/Dokument/02\ Områden/Coding/exchangerate/exchangerates.sh'
+alias växla='vaxla'
+
+# FABRIC
 ## min egna förbättrade hjälp för att lista alla patterns och visa dess innehåll
 alias patterns='(cd ~/.config/fabric/patterns; find -name system.md | sort | fzf --preview "batcat --style=numbers --color=always {}" --preview-window=right:60%:wrap)'
 ## script för att förenkla körandet av mina parafeedback för mitt noteringsystem.
@@ -65,3 +60,5 @@ export STARSHIP_LOG=error
 
 # set https://starship.rs/ as default prompt
 eval "$(starship init zsh)"
+
+source $ZSH/oh-my-zsh.sh

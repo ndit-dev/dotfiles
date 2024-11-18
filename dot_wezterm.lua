@@ -22,19 +22,11 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     })
     table.insert(launch_menu, {
         label = "PowerShell",
-<<<<<<< HEAD
         args = { "pwsh.exe", "-NoLogo" },
     })
     table.insert(launch_menu, {
         label = "PowerShell No Profile",
         args = { "pwsh.exe", "-NoLogo", "-NoProfile" },
-=======
-        args = { "powershell.exe", "-NoLogo" },
-    })
-    table.insert(launch_menu, {
-        label = "PowerShell No Profile",
-        args = { "powershell.exe", "-NoLogo", "-NoProfile" },
->>>>>>> 504526e73b1d9516712d09d557465b8926cd978f
     })
     table.insert(launch_menu, {
         label = "CMD",
@@ -51,7 +43,6 @@ else
         args = { "/usr/local/bin/pwsh", "-NoLogo", "-NoProfile" },
     })
 end
-<<<<<<< HEAD
 -- Key binding for ctrl+shift+t to show the launch menu
 config.keys = {
     {
@@ -68,11 +59,6 @@ config.keys = {
 
 -- Mousing bindings
 config.mouse_bindings = {
-=======
-
--- Mousing bindings
-mouse_bindings = {
->>>>>>> 504526e73b1d9516712d09d557465b8926cd978f
     -- Change the default click behavior so that it only selects
     -- text and doesn't open hyperlinks
     {
@@ -93,7 +79,6 @@ mouse_bindings = {
         mods = "NONE",
     },
     {
-<<<<<<< HEAD
         event = { Down = { streak = 1, button = "Right" } },
         mods = "NONE",
         action = wezterm.action_callback(function(window, pane)
@@ -106,24 +91,11 @@ mouse_bindings = {
             end
         end),
     },
-=======
-		event = { Down = { streak = 1, button = "Right" } },
-		mods = "NONE",
-		action = wezterm.action_callback(function(window, pane)
-			local has_selection = window:get_selection_text_for_pane(pane) ~= ""
-			if has_selection then
-				window:perform_action(act.CopyTo("ClipboardAndPrimarySelection"), pane)
-				window:perform_action(act.ClearSelection, pane)
-			else
-				window:perform_action(act({ PasteFrom = "Clipboard" }), pane)
-			end
-		end),
-	},
->>>>>>> 504526e73b1d9516712d09d557465b8926cd978f
 }
 
 --- Default config settings
 config.scrollback_lines = 7000
+config.enable_scroll_bar = true
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
 config.hide_tab_bar_if_only_one_tab = true
 config.color_scheme = "NightOwl (Gogh)"
@@ -157,8 +129,4 @@ if haswork then
     work.apply_to_config(config)
 end
 
-<<<<<<< HEAD
 return config
-=======
-return config
->>>>>>> 504526e73b1d9516712d09d557465b8926cd978f

@@ -1,0 +1,64 @@
+# OH-MY-ZSH PATH
+export ZSH="$HOME/.oh-my-zsh"
+
+# PATH
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:
+
+# OH-MY-ZSH PLUGINS
+plugins=(git
+sudo
+docker
+last-working-dir
+colored-man-pages
+zsh-autosuggestions
+zsh-syntax-highlighting)
+
+# ONEDRIVE DIR
+if grep -q microsoft /proc/version; then
+    # Windows WSL
+    export OneDriveDir=$(wslpath "$(cd /mnt/c/Windows/System32 && cmd.exe /C echo %OneDrive% | tr -d '\r')")
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS
+    export OneDriveDir=$(find "$HOME" -maxdepth 1 -name "OneDrive*" | head -n 1)
+fi
+
+if [ -z "$OneDriveDir" ]; then
+    echo "OneDrive path could not be determined."
+else
+    echo "OneDrive: '$OneDriveDir'"
+fi
+
+# ALIASES
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+alias digs='dig +short'
+
+alias cat='batcat'
+alias bat='batcat'
+
+alias p='pbpaste'
+alias fp='fabricp'
+
+alias vaxla='$OneDriveDir/Dokument/02\ Områden/Coding/exchangerate/exchangerates.sh'
+alias växla='vaxla'
+
+# FABRIC
+## min egna förbättrade hjälp för att lista alla patterns och visa dess innehåll
+alias patterns='(cd ~/.config/fabric/patterns; find -name system.md | sort | fzf --preview "batcat --style=numbers --color=always {}" --preview-window=right:60%:wrap)'
+## script för att förenkla körandet av mina parafeedback för mitt noteringsystem.
+alias para_feedback='"$OneDriveDir/Dokument/02 Områden/AI/Fabric/p_para_feedback.sh" | fabric -sp p_para_feedback'
+
+# visa ej varningar från starship
+export STARSHIP_LOG=error
+
+# set https://starship.rs/ as default prompt
+eval "$(starship init zsh)"
+
+source $ZSH/oh-my-zsh.sh

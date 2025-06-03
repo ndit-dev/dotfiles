@@ -14,6 +14,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Sätt HOME till USERPROFILE om HOME är nil (Windows-specifik fix)
+if vim.fn.has("win32") == 1 and os.getenv("HOME") == nil then
+  vim.env.HOME = os.getenv("USERPROFILE")
+end
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins

@@ -1,7 +1,10 @@
 # ndit-dev dotfiles
+
 ## new systems
+
 ### linux
-```
+
+```sh
 cd ~
 sudo apt update && sudo apt -y upgrade
 sudo apt -y install zsh wget curl tree git unzip net-tools make gcc fzf ripgrep bat fzf ripgrep bat lsd build-essential pipx python3-dev xclip
@@ -17,7 +20,8 @@ source ~/.zshrc
 ```
 
 ### OS X
-```
+
+```sh
 cd ~
 brew update && brew upgrade
 brew install zsh wget curl tree git unzip make gcc fzf ripgrep bat fzf ripgrep bat lsd ffmpeg
@@ -33,26 +37,33 @@ source ~/.zshrc
 ```
 
 ### Windows
-does not really use dot chezmoi, but have a setup script here anyway
-1. Install PragmataPro (not on github for copyright reasons)
-2. install the following after setting up the profile
-```
-# bat
+
+1. Install Powershell 7 with 'winget install Microsoft.Powershell'
+2. install the following in pwsh, pwsh-profile will be loaded from OneDrive
+
+```ps1
+# jetbrains nerd fonts
+& ([scriptblock]::Create((iwr 'https://to.loredo.me/Install-NerdFont.ps1'))) -Confirm:$false -Name jetbrains-mono
+# bat, ripgrepm, fzf, npm
 winget install sharkdp.bat
-# ripGrep
 winget install BurntSushi.ripgrep.MSVC
-# fuzzy finder
 winget install fzf
-# Cheznoi
+winget install OpenJS.NodeJS.LTS
+# install terminal-icons for Powershell
+Install-Module -Name Terminal-Icons -Repository PSGallery
+# Chezmoi
 winget install twpayne.chezmoi
 chezmoi init --apply ndit-dev --apply
 # starship
 winget install --id Starship.Starship
-
+# Neovim and neovide
+winget install neovim.Neovim
+winget install neovide.neovide
 ```
 
 ## new user with existing system installation
-```
+
+```sh
 cd ~
 export PATH=$HOME/bin:$PATH
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

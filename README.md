@@ -44,11 +44,14 @@ source ~/.zshrc
 ```ps1
 # jetbrains nerd fonts
 & ([scriptblock]::Create((iwr 'https://to.loredo.me/Install-NerdFont.ps1'))) -Confirm:$false -Name jetbrains-mono
-# bat, ripgrepm, fzf, npm
+# bat, ripgrepm, fzf, npm, git, lazygit
 winget install sharkdp.bat
 winget install BurntSushi.ripgrep.MSVC
 winget install fzf
 winget install OpenJS.NodeJS.LTS
+winget install git.Git
+winget install JesseDuffield.lazygit
+winget install zig.zig
 # install terminal-icons for Powershell
 Install-Module -Name Terminal-Icons -Repository PSGallery
 # Chezmoi

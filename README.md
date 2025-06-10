@@ -24,7 +24,7 @@ source ~/.zshrc
 ```sh
 cd ~
 brew update && brew upgrade
-brew install zsh wget curl tree git unzip make gcc fzf ripgrep bat fzf ripgrep bat lsd ffmpeg
+brew chezmoi install zsh wget curl tree git lazygit unzip make gcc cmake fzf ripgrep bat fzf ripgrep bat lsd neovim neovide node
 export PATH=$HOME/bin:$PATH
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
